@@ -24,8 +24,6 @@ const SearchBar = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
     }
   };
 
-  console.log("ESTE ES EL DIRECTORIO", router.pathname);
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!searchedPokemon) return setInputValidation(false);
