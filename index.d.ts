@@ -30,3 +30,5 @@ type SinglePokemon = {
   types: Types;
   name: string;
 };
+
+type SearchedPokemon = string;
