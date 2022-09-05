@@ -10,3 +10,193 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+.card-container {
+  margin: 10% 15% 10% 15%;
+}
+
+.cover {
+  height: 28vh;
+  margin-bottom: 10%;
+}
+
+.image {
+  position: absolute;
+  width: 9%;
+  margin-top: -5%;
+  margin-left: 0.5%;
+  z-index: 1;
+}
+
+.cover-image {
+  position: absolute;
+  width: 20%;
+  margin-left: 25%;
+  margin-top: -20%;
+  z-index: 1;
+}
+
+.grid-cards {
+  display: grid;
+  padding: 20px;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  margin: 8%;
+}
+
+.properties {
+  margin: 2%;
+}
+
+.card {
+  margin: 5%;
+  margin-top: 1%;
+  margin-bottom: 40%;
+  position: relative;
+  border-radius: 15%;
+}
+
+.not-found {
+  background-color: white;
+  height: 50vh;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10%;
+  text-align: center;
+}
+
+.pokeball-container {
+  display: flex;
+}
+
+.pokeball {
+  margin: 0 auto;
+  width: 20%;
+  margin-top: -20%;
+}
+
+.types {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+
+.types span {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 3px 10px;
+}
+
+.abilities {
+  padding-left: 1%;
+  padding-right: 1%;
+  border: solid 2px;
+  border-radius: 10px;
+  margin-left: 2%;
+  margin-right: 1%;
+  font-size: x-large;
+  text-size-adjust: auto;
+}
+
+.number {
+  margin: 10%;
+  margin-left: 5%;
+  font-size: large;
+}
+
+.pre-evolution {
+  text-align: center;
+  font-size: small;
+  margin-top: -10px;
+}
+
+.pre-evolution-pokemon {
+  text-align: center;
+}
+
+.single-card {
+  margin: 8% 15% 3% 15%;
+  background-color: white;
+}
+
+.fire {
+  background: #ff7f00;
+}
+
+.water {
+  background: #b0e2ff;
+}
+
+.bug {
+  background: #99cc33;
+}
+
+.normal {
+  background: #ddccaa;
+}
+
+.grass {
+  background: #99ff66;
+}
+
+.electric {
+  background: #ffd700;
+}
+
+.ice {
+  background: #add8e6;
+}
+
+.fighting {
+  background: #ff6a6a;
+}
+
+.poison {
+  background: #cc88bb;
+}
+
+.ground {
+  background: #deb887;
+}
+
+.flying {
+  background: #a98ff3;
+}
+
+.psychic {
+  background: #ffb5c5;
+}
+
+.ghost {
+  background: #735797;
+}
+
+.dragon {
+  background: #ab82ff;
+}
+
+.dark {
+  background: #705746;
+}
+
+.steel {
+  background: #cccccc;
+}
+
+.fairy {
+  background: #ffb0ff;
+}
+
+.rock {
+  background: #cd853f;
+}
