@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { CardActionArea } from "@mui/material";
-
+import NotFound from "../../components/NotFound";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
@@ -66,6 +66,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const PokemonCard = (props: SinglePokemon) => {
+  if (!props.id) return <NotFound />;
+
   const [type] = props.types;
 
   return (
@@ -73,7 +75,7 @@ const PokemonCard = (props: SinglePokemon) => {
       <div className={`cover ${type.type.name}`}>
         <Link href={{ pathname: "/" }}>
           <CardActionArea>
-            <ArrowBackIcon sx={{ marginTop:"2%", marginLeft:"3%"  }} />
+            <ArrowBackIcon sx={{ marginTop: "2%", marginLeft: "3%" }} />
           </CardActionArea>
         </Link>
       </div>
