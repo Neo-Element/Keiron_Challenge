@@ -10,6 +10,7 @@ import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { CardActionArea } from "@mui/material";
 import NotFound from "../../components/NotFound";
+import { evolutions } from "../../utils/getEvolutions";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
@@ -114,6 +115,33 @@ const PokemonCard = (props: SinglePokemon) => {
         </Typography>
         <Typography className="properties" variant="h4">
           Weight: {props.weight} lb
+        </Typography>
+        <Typography className="properties" variant="h4">
+          Shiny:
+          <span>
+            <img className="shiny-image" src={props.front_shiny}></img>
+          </span>
+        </Typography>
+        <Typography
+          className="properties"
+          gutterBottom
+          variant="h4"
+          component="div"
+          sx={{ textAlign: "center" }}
+        >
+          Evolution:{" "}
+          {evolutions(props.chain).map((evolution: string) => {
+            console.log("ESTO ES EVOLUTION", evolution);
+            return (
+              <Link href={{ pathname: `/pokemon/${evolution}` }}>
+                <CardActionArea>
+                  <span className={`evolutions ${props.types[0].type.name}`}>
+                    {capitalizeFirstCharacter(evolution)}
+                  </span>
+                </CardActionArea>
+              </Link>
+            );
+          })}
         </Typography>
       </CardContent>
     </Card>
