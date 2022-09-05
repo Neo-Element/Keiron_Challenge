@@ -12,15 +12,19 @@ const SearchBar = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
   const [inputValidation, setInputValidation] = useState(true);
   const router = useRouter();
   const { pokemonArray, setPokemonArray } = useContext(PokemonContext);
+  const { pathname } = router;
 
   const setPokemonState = (event: ChangeEvent<HTMLInputElement>) => {
     let input = event.target.value.toLowerCase().trim();
     setSearchedPokemon(input);
-    let filteredPokemons: [] = filterPokemons(input, pokemonsArray);
-    console.log("ESTOS SON LOS FILTRADOS", filteredPokemons);
-    setPokemonArray(filteredPokemons);
-    console.log("POR FAVOR", pokemonArray);
+
+    if (pathname === "/") {
+      let filteredPokemons: [] = filterPokemons(input, pokemonsArray);
+      setPokemonArray(filteredPokemons);
+    }
   };
+
+  console.log("ESTE ES EL DIRECTORIO", router.pathname);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
