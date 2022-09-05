@@ -1,17 +1,25 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState, useContext } from "react";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import { useRouter } from "next/router";
+import { filterPokemons } from "../utils/filterPokemons";
+import { PokemonContext } from "../context/PokemonContext";
 
-const SearchBar = () => {
+const SearchBar = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
   const [searchedPokemon, setSearchedPokemon] = useState<SearchedPokemon>();
   const [inputValidation, setInputValidation] = useState(true);
   const router = useRouter();
+  const { pokemonArray, setPokemonArray } = useContext(PokemonContext);
 
   const setPokemonState = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchedPokemon(event.target.value);
+    let input = event.target.value.toLowerCase().trim();
+    setSearchedPokemon(input);
+    let filteredPokemons: [] = filterPokemons(input, pokemonsArray);
+    console.log("ESTOS SON LOS FILTRADOS", filteredPokemons);
+    setPokemonArray(filteredPokemons);
+    console.log("POR FAVOR", pokemonArray);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {

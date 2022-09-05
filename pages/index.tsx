@@ -1,6 +1,8 @@
 import type { GetServerSideProps } from "next";
 import Grid from "../components/Grid";
 import axios, { AxiosResponse } from "axios";
+import { PokemonContext } from "../context/PokemonContext";
+import { useContext } from "react";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const { REQUEST, LIMIT } = process.env;
@@ -44,9 +46,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 const Home = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
+
   return (
     <>
-      <Grid pokemonsArray={pokemonsArray} />
+      <Grid pokemonsArray={pokemonsArray}/>
     </>
   );
 };
