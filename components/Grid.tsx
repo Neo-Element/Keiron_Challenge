@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -6,21 +6,24 @@ import { CardActionArea } from "@mui/material";
 import Link from "next/link";
 import { capitalizeFirstCharacter } from "../utils/capitalizeFirstCharacter";
 import { motion } from "framer-motion";
+import { PokemonContext } from "../context/PokemonContext";
 
 const Grid = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
+  const { pokemonArray } = useContext(PokemonContext);
+
   return (
     <div className="grid-cards">
-      {pokemonsArray.map(({ name, types, id, front_default, evolvesFrom }) => {
-        const [firsType] = types;
+      {pokemonArray.map((pokemon: Pokemon) => {
+        const [firsType] = pokemon.types;
 
         return (
-          <Link href={{ pathname: `/pokemon/${name}` }}>
-            <div key={id}>
+          <Link href={{ pathname: `/pokemon/${pokemon.name}` }}>
+            <div key={pokemon.id}>
               <div style={{ marginLeft: "20%" }}>
                 <motion.img
-                  layoutId={front_default}
+                  layoutId={pokemon.front_default}
                   className="image"
-                  src={front_default}
+                  src={pokemon.front_default}
                   alt=""
                 />
               </div>
@@ -32,7 +35,7 @@ const Grid = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
                     component="div"
                     className="number"
                   >
-                    {`#${id}`}
+                    {`#${pokemon.id}`}
                   </Typography>
                   <CardContent sx={{ height: "120px" }}>
                     <Typography
@@ -41,7 +44,7 @@ const Grid = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
                       component="div"
                       sx={{ textAlign: "center", marginTop: "-12%" }}
                     >
-                      {capitalizeFirstCharacter(name)}
+                      {capitalizeFirstCharacter(pokemon.name)}
                     </Typography>
                     <Typography
                       gutterBottom
@@ -49,17 +52,19 @@ const Grid = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
                       component="div"
                       className="pre-evolution"
                     >
-                      {evolvesFrom !== "none" && (
+                      {pokemon.evolvesFrom !== "none" && (
                         <>
                           <Typography className="pre-evolution">
                             <span>{`Pre-Evolution:`}</span>
                           </Typography>
-                          <span>{capitalizeFirstCharacter(evolvesFrom)}</span>
+                          <span>
+                            {capitalizeFirstCharacter(pokemon.evolvesFrom)}
+                          </span>
                         </>
                       )}
                     </Typography>
 
-                    {types.map((element: any, i: number) => {
+                    {pokemon.types.map((element: any, i: number) => {
                       return (
                         <Typography variant="body2" className="types" key={i}>
                           <span>{element.type.name}</span>
