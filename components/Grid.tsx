@@ -7,13 +7,16 @@ import Link from "next/link";
 import { capitalizeFirstCharacter } from "../utils/capitalizeFirstCharacter";
 import { motion } from "framer-motion";
 import { PokemonContext } from "../context/PokemonContext";
+import { selectStateToMap } from "../utils/selectStateToMap";
 
 const Grid = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
   const { pokemonArray } = useContext(PokemonContext);
 
+  const stateToMap: Pokemon[] = selectStateToMap(pokemonArray, pokemonsArray);
+
   return (
     <div className="grid-cards">
-      {pokemonArray.map((pokemon: Pokemon) => {
+      {stateToMap.map((pokemon: Pokemon) => {
         const [firsType] = pokemon.types;
 
         return (
