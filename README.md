@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Pokemon App for Keiron Challenge
 
-First, run the development server:
+Consumed PokeAPI to build a single page applicatiom.
+In home page, you will find the first 25 pokemons and their number, name, pre-evolution and type. Each card automatically sets its color depending on each pokemon type.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+You can click a card to get more information about that pokemon, like abilities, height, weight, it's shiny version and evolutions. Also you can click on each evolution to see its respective card.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can filter the first 25 Pokemons, and if the pokemon you are looking for is not there, you can press enter and look for it and get its single card.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Technologies Involved:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+. TypeScript
+. Next.js
+. React
+. Material UI
+. Axios
+. Framer-Motion
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Quick Start:
 
-## Learn More
+1.Clone repository
+2.Select folder
+3.$ npm install
+4.$ npm run dev
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Open http://localhost:3000 to view it in your browser.
