@@ -20,8 +20,11 @@ const Grid = ({ pokemonsArray }: { pokemonsArray: PokemonsArray }) => {
         const [firsType] = pokemon.types;
 
         return (
-          <Link href={{ pathname: `/pokemon/${pokemon.name}` }}>
-            <div key={pokemon.id}>
+          <Link
+            key={pokemon.id}
+            href={{ pathname: `/pokemon/${pokemon.name}` }}
+          >
+            <div>
               <div style={{ marginLeft: "20%" }}>
                 <motion.img
                   layoutId={pokemon.front_default}

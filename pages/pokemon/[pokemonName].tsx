@@ -102,9 +102,12 @@ const PokemonCard = (props: SinglePokemon) => {
           component="div"
         >
           Abilities:{" "}
-          {props.abilities.map((ability: Abilities) => {
+          {props.abilities.map((ability: Abilities, i: number) => {
             return (
-              <span className={`abilities ${props.types[0].type.name}`}>
+              <span
+                key={i}
+                className={`abilities ${props.types[0].type.name}`}
+              >
                 {capitalizeFirstCharacter(ability.ability.name)}
               </span>
             );
@@ -130,11 +133,10 @@ const PokemonCard = (props: SinglePokemon) => {
           sx={{ textAlign: "center" }}
         >
           Evolution:{" "}
-          {evolutions(props.chain).map((evolution: string) => {
-            console.log("ESTO ES EVOLUTION", evolution);
+          {evolutions(props.chain).map((evolution: string, i:number) => {
             return (
-              <Link href={{ pathname: `/pokemon/${evolution}` }}>
-                <CardActionArea>
+              <Link key={i} href={{ pathname: `/pokemon/${evolution}` }}>
+                <CardActionArea >
                   <span className={`evolutions ${props.types[0].type.name}`}>
                     {capitalizeFirstCharacter(evolution)}
                   </span>

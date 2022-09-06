@@ -9,7 +9,7 @@ const NotFound = () => {
     <>
       <div className="not-found">
         <Typography variant="h4">
-          Sorry trainer! We couldn't find that Pokemon! Keep looking for 'em.
+          Sorry trainer! We couldn&apos;t find that Pokemon! Keep looking for &apos;em.
         </Typography>
       </div>
       <div className="pokeball-container">
